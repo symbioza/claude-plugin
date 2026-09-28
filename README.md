@@ -1,3 +1,15 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/symbioza-logo-dark.png">
+    <img alt="Symbioza" src="assets/symbioza-logo-light.png" width="300">
+  </picture>
+</p>
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/symbioza/claude-plugin?style=flat-square&labelColor=0b0c0c&color=40a56f"></a>
+  <a href="https://symbioza.dev/agent"><img alt="MCP over OAuth" src="https://img.shields.io/badge/MCP-OAuth-40a56f?style=flat-square&labelColor=0b0c0c"></a>
+  <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude_Code-plugin-40a56f?style=flat-square&labelColor=0b0c0c">
+</p>
+
 # Symbioza for Claude Code
 
 Symbioza runs a containerized GPU job on a rented cloud machine under a hard dollar ceiling and collects available artifacts. An agent submits an image, a command and a budget through one MCP connector. Symbioza selects compute, runs the job and reports output delivery and billing separately. Recovery depends on job policy, available compute, remaining budget and compatible checkpoint support.
@@ -11,6 +23,23 @@ claude plugin install symbioza@symbioza
 ```
 
 Or both at once from inside a Claude Code session: `/plugin install symbioza --marketplace symbioza/claude-plugin`.
+
+## How it works
+
+```mermaid
+sequenceDiagram
+  participant A as Your agent
+  participant S as Symbioza
+  participant M as Cloud GPU machine
+  A->>S: estimateExecution (free)
+  S-->>A: estimate + availableUsd
+  A->>S: submitJob(image, command, budgetUsd)
+  Note over S: budgetUsd checked before booking and before every retry
+  S->>M: run the container
+  M-->>S: /workspace/artifacts/
+  A->>S: getStatus · getArtifact
+  S-->>A: artifacts + bill (never more than budgetUsd)
+```
 
 ## What it adds
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="How Symbioza works: your agent describes the job, gets a free estimate, submits with a total spending limit, Symbioza runs it on a cloud GPU machine, and the files the run wrote come back. You are never billed more than your budget.">
+<rect width="1200" height="320" rx="16" fill="#0b0c0c"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#40a56f"/></marker></defs>
+<rect x="33" y="40" width="204" height="150" rx="12" fill="#15181a" stroke="#2a2f33" stroke-width="1.5"/>
+<circle cx="63" cy="72" r="15" fill="#40a56f"/><text x="63" y="78" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b0c0c">1</text>
+<text x="51" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#f2f4f3">Your agent</text>
+<text x="51" y="148" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">describes the job:</text>
+<text x="51" y="168" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">image · command · inputs</text>
+<line x1="240" y1="115.0" x2="264" y2="115.0" stroke="#40a56f" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="267" y="40" width="204" height="150" rx="12" fill="#0f2a1c" stroke="#40a56f" stroke-width="2"/>
+<circle cx="297" cy="72" r="15" fill="#40a56f"/><text x="297" y="78" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b0c0c">2</text>
+<text x="285" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#f2f4f3">Free estimate</text>
+<text x="285" y="148" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">price, and the time</text>
+<text x="285" y="168" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">limit for this job</text>
+<line x1="474" y1="115.0" x2="498" y2="115.0" stroke="#40a56f" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="501" y="40" width="204" height="150" rx="12" fill="#0f2a1c" stroke="#40a56f" stroke-width="2"/>
+<circle cx="531" cy="72" r="15" fill="#40a56f"/><text x="531" y="78" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b0c0c">3</text>
+<text x="519" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#f2f4f3">Submit</text>
+<text x="519" y="148" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">with your total</text>
+<text x="519" y="168" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">spending limit</text>
+<line x1="708" y1="115.0" x2="732" y2="115.0" stroke="#40a56f" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="735" y="40" width="204" height="150" rx="12" fill="#15181a" stroke="#2a2f33" stroke-width="1.5"/>
+<circle cx="765" cy="72" r="15" fill="#40a56f"/><text x="765" y="78" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b0c0c">4</text>
+<text x="753" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#f2f4f3">Runs on a GPU</text>
+<text x="753" y="148" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">Symbioza books a cloud</text>
+<text x="753" y="168" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">machine and runs it</text>
+<line x1="942" y1="115.0" x2="966" y2="115.0" stroke="#40a56f" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="969" y="40" width="204" height="150" rx="12" fill="#15181a" stroke="#2a2f33" stroke-width="1.5"/>
+<circle cx="999" cy="72" r="15" fill="#40a56f"/><text x="999" y="78" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b0c0c">5</text>
+<text x="987" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#f2f4f3">Files come back</text>
+<text x="987" y="148" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">what the run wrote to</text>
+<text x="987" y="168" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" fill="#9aa3a0">/workspace/artifacts/</text>
+<path d="M33 212 V226 H471 V212" fill="none" stroke="#2a2f33" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="252.0" y="260" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#f2f4f3">Free until you submit</text>
+<text x="252.0" y="286" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">sign in and estimate with no credit</text>
+<path d="M501 212 V226 H1173 V212" fill="none" stroke="#40a56f" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="837.0" y="260" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#40a56f">You are never billed more than your budget</text>
+<text x="837.0" y="286" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" fill="#9aa3a0">checked before a machine is booked and again before every retry</text>
+</svg>

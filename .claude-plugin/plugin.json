@@ -1,7 +1,8 @@
 {
   "name": "symbioza",
   "displayName": "Symbioza",
-  "description": "Symbioza runs a containerized GPU job on a rented cloud machine under a hard dollar ceiling and collects available artifacts. An agent submits an image, a command and a budget through one MCP connector. Symbioza selects compute, runs the job and reports output delivery and billing separately. Recovery depends on job policy, available compute, remaining budget and compatible checkpoint support.",
+  "version": "0.2.0",
+  "description": "Give your agent a cloud GPU with a hard spending limit: free estimates, supported containers, output files collected, and never billed more than your budget.",
   "author": {
     "name": "Symbioza",
     "url": "https://symbioza.dev"

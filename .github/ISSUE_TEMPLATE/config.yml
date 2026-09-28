@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Account, payment, privacy or security
+    url: https://symbioza.dev/contact
+    about: Private matters go through the contact form, not this public tracker.
+  - name: Setup guides for every client
+    url: https://symbioza.dev/plugins
+    about: Claude Code, ChatGPT, Claude and other remote MCP clients.

@@ -1,0 +1,69 @@
+name: Installation or plugin problem
+description: The plugin will not install, load, sign in, or show its tools in Claude Code.
+labels: ["plugin"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This tracker is public. **Never paste** tokens, keys, passwords, your account email, job specifications,
+        dataset links or any private workload data. Redact output before pasting it.
+
+        A problem with your account, a payment, privacy or security? Use https://symbioza.dev/contact instead.
+  - type: input
+    id: claude-version
+    attributes:
+      label: Claude Code version
+      description: The output of `claude --version`.
+      placeholder: "2.1.283 (Claude Code)"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "macOS 15, Ubuntu 24.04, Windows 11 …"
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: Where it went wrong
+      options:
+        - Adding the marketplace
+        - Installing the plugin
+        - Reloading or activating the plugin
+        - Signing in
+        - The tools or the skill do not appear
+        - A tool call fails
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What you ran
+      description: The commands or prompts, in order.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What happened (redacted)
+      description: |
+        Redacted output helps most: `claude plugin list`, what `/mcp` shows for `plugin:symbioza:symbioza`,
+        and the error text. Replace anything private with `[redacted]`.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+  - type: checkboxes
+    id: redacted
+    attributes:
+      label: Before you submit
+      options:
+        - label: I removed tokens, keys, account details and private job data from everything above.
+          required: true

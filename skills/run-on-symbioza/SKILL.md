@@ -60,8 +60,8 @@ hourly rate, the 48-hour platform maximum and any `maxRuntimeSeconds` the user s
 refused at submit). The estimate's `boundSeconds`, with its `note`, is the longest the run can go on that
 budget and cap; the machine it books can end it sooner, and a `maxRuntimeSeconds` that machine cannot hold is
 refused before anything is booked. Show the user that figure and never promise a longer run.
-Put a `gpu` block in the spec for CUDA work — it may be empty. A spec with no `gpu` block is refused with
-`no_compute`.
+The `gpu` block is optional: every job runs on a GPU machine, and a spec without the block is treated as
+an empty one with Symbioza sizing the card. Declare it only to carry `minCudaVersion` or an evidenced floor.
 
 ## The loop
 

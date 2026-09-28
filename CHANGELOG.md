@@ -5,6 +5,11 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.2.4 — 2026-09-28
+
+- The `gpu` block is optional. A spec without it is treated as an empty one: every job runs on a GPU machine and
+  Symbioza sizes the card. The skill no longer tells the agent that a missing block is refused.
+
 ## 0.2.3 — 2026-09-28
 
 - A clearer page: what the plugin adds comes first, then install, sign in, check the connection, a free estimate,

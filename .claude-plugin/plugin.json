@@ -1,7 +1,7 @@
 {
   "name": "symbioza",
   "displayName": "Symbioza",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Give your agent a cloud GPU with a hard spending limit: free estimates, supported containers, output files collected, and never billed more than your budget.",
   "author": {
     "name": "Symbioza",

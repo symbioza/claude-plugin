@@ -1,7 +1,7 @@
 {
   "name": "symbioza",
   "displayName": "Symbioza",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Give your agent a cloud GPU with a hard spending limit: free estimates, supported containers, output files collected, and never billed more than your budget.",
   "author": {
     "name": "Symbioza",
@@ -12,9 +12,12 @@
   "license": "MIT",
   "keywords": [
     "gpu",
+    "cloud-gpu",
     "mcp",
+    "fine-tuning",
     "training",
-    "inference",
-    "batch"
+    "evaluation",
+    "batch-inference",
+    "spending-limit"
   ]
 }

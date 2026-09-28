@@ -1,7 +1,16 @@
 # Changelog
 
-Each release sets `version` in `.claude-plugin/plugin.json` to the heading below it. Claude Code updates an
-installed copy only when that version changes, so every published change gets a new version here.
+What changed in each release of the Symbioza plugin for Claude Code. To update, see the README.
+
+<!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
+updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
+
+## 0.2.3 — 2026-09-28
+
+- A clearer page: what the plugin adds comes first, then install, sign in, check the connection, a free estimate,
+  and adding credit. "Hosted MCP server" says what the connector is.
+- One word for the money limit throughout: your spending limit.
+- More precise search keywords.
 
 ## 0.2.2 — 2026-09-28
 
@@ -17,8 +26,7 @@ installed copy only when that version changes, so every published change gets a 
 ## 0.2.1 — 2026-09-28
 
 - Signing in, as it works in Claude Code: the connector does not open the browser by itself. Run `/mcp`, select
-  `plugin:symbioza:symbioza` and choose Authenticate; the tools appear after sign-in. Found in the first live
-  install from this repository.
+  `plugin:symbioza:symbioza` and choose Authenticate; the tools appear after sign-in.
 - Install from the shell ends with "Successfully installed"; start a new session to use the plugin. The
   "Plugin is now active" and `/reload-plugins` messages appear only when installing inside a session.
 - The update section says the commands update an existing install.

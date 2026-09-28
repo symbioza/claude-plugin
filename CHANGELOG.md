@@ -3,6 +3,17 @@
 Each release sets `version` in `.claude-plugin/plugin.json` to the heading below it. Claude Code updates an
 installed copy only when that version changes, so every published change gets a new version here.
 
+## 0.2.2 — 2026-09-28
+
+- The skill tells your agent to stop after the free estimate and submit only after you approve, to poll every few
+  minutes rather than in a loop, to collect files from a finished job even when none are marked ready, and to
+  cancel only when you ask.
+- A narrower description, so the skill is used for remote GPU batch jobs and not for ordinary local tasks.
+- Corrected the time limit: the estimate shows how long the run can go on your budget and cap; the machine it
+  books can end it sooner.
+- Checkpoint resume: `SYMBIOSA_RESUME` is unset on a first attempt and whenever nothing could be restored.
+- The README says an update needs a restart of Claude Code.
+
 ## 0.2.1 — 2026-09-28
 
 - Signing in, as it works in Claude Code: the connector does not open the browser by itself. Run `/mcp`, select

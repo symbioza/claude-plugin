@@ -92,9 +92,9 @@ When you are happy with the estimate, tell your agent to submit.
 
 ## Limits worth knowing
 
-- **Time.** Every run has a time limit: what your budget buys on the machine it books, any cap you set, and how
-  long that machine is available, never more than the 48-hour platform maximum. A cap above 48 hours is refused
-  at submit. The estimate shows the limit for your job before you spend anything.
+- **Time.** Every run has a time limit: what your budget buys on the machine it books and any cap you set, never
+  more than the 48-hour platform maximum. The estimate shows that limit before you spend anything; the machine
+  the job books can end a run sooner. A cap above 48 hours is refused at submit.
 - **Files.** Check the file delivery status separately from the run status. Available output files have
   download links and hashes you can verify. A completed run does not by itself confirm file delivery or final
   billing. Download links expire after 24 hours; the files do not.
@@ -132,6 +132,8 @@ default for this marketplace. To update:
 claude plugin marketplace update symbioza
 claude plugin update symbioza@symbioza
 ```
+
+The update ends with `Restart to apply changes.`: restart Claude Code to load the new version.
 
 To uninstall:
 

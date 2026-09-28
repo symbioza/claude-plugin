@@ -25,8 +25,9 @@ something other than files.
 
 Two gates: an account, and money in it.
 
-1. **An account.** The first tool call opens a browser sign-in; there is no API key. Creating an account is
-   open. If a tool answers `unauthorized`, ask the user to run /mcp and authenticate the symbioza server.
+1. **An account.** The connector needs signing in once before its tools appear; there is no API key.
+   Creating an account is open. If Symbioza's tools are not available, or a tool answers `unauthorized`, ask
+   the user to run /mcp, select plugin:symbioza:symbioza and choose Authenticate; the browser opens to sign in.
 2. **Money in it.** A new account can connect, estimate for free and read its own job list; only `submitJob`
    refuses — “prepaid balance: $0.00 available … Top up, or lower the budget.” — until the account holds
    credit. Topping up is the user's step: send them to https://symbioza.dev/app/topup — sign in and add

@@ -3,6 +3,15 @@
 Each release sets `version` in `.claude-plugin/plugin.json` to the heading below it. Claude Code updates an
 installed copy only when that version changes, so every published change gets a new version here.
 
+## 0.2.1 — 2026-09-28
+
+- Signing in, as it works in Claude Code: the connector does not open the browser by itself. Run `/mcp`, select
+  `plugin:symbioza:symbioza` and choose Authenticate; the tools appear after sign-in. Found in the first live
+  install from this repository.
+- Install from the shell ends with "Successfully installed"; start a new session to use the plugin. The
+  "Plugin is now active" and `/reload-plugins` messages appear only when installing inside a session.
+- The update section says the commands update an existing install.
+
 ## 0.2.0 — 2026-09-28
 
 - A first-use guide: what you need, install, authenticate, verify the connection, ask for a free estimate, and

@@ -47,14 +47,15 @@ claude plugin install symbioza@symbioza
 Or both at once from inside a Claude Code session (Claude Code v2.1.275 or later):
 `/plugin install symbioza --marketplace symbioza/claude-plugin`.
 
-If Claude Code answers `Run /reload-plugins to activate.`, run `/reload-plugins`. If it says
-`Plugin is now active.`, nothing else is needed.
+From the shell, the install ends with `Successfully installed plugin: symbioza@symbioza`: start a new Claude
+Code session to use it. Installed from inside a session, Claude Code says either `Plugin is now active.` or
+`Run /reload-plugins to activate.` (then run `/reload-plugins`).
 
 ## 2. Authenticate
 
-The first Symbioza tool call opens a browser sign-in: Google, GitHub or an email address. There is no key to
-generate and none to send. You can also sign in first: run `/mcp`, pick `plugin:symbioza:symbioza` and
-authenticate.
+The connector needs signing in once before its tools appear. Run `/mcp`, select `plugin:symbioza:symbioza`
+and choose **Authenticate**: your browser opens to sign in with Google, GitHub or an email address. There is no
+key to generate and none to send.
 
 ## 3. Verify the connection
 
@@ -124,7 +125,8 @@ Privacy: https://symbioza.dev/privacy · Terms: https://symbioza.dev/terms
 
 ## Update and uninstall
 
-Auto-update is off by default for this marketplace. To update:
+These commands update an existing install; installing for the first time, see step 1. Auto-update is off by
+default for this marketplace. To update:
 
 ```sh
 claude plugin marketplace update symbioza

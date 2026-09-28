@@ -1,0 +1,19 @@
+{
+  "name": "symbioza",
+  "displayName": "Symbioza",
+  "description": "Symbioza runs a containerized GPU job on a rented cloud machine under a hard dollar ceiling and collects available artifacts. An agent submits an image, a command and a budget through one MCP connector. Symbioza selects compute, runs the job and reports output delivery and billing separately. Recovery depends on job policy, available compute, remaining budget and compatible checkpoint support.",
+  "author": {
+    "name": "Symbioza",
+    "url": "https://symbioza.dev"
+  },
+  "homepage": "https://symbioza.dev",
+  "repository": "https://github.com/symbioza/claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "gpu",
+    "mcp",
+    "training",
+    "inference",
+    "batch"
+  ]
+}

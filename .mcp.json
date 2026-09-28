@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "symbioza": {
+      "type": "http",
+      "url": "https://symbioza.dev/mcp"
+    }
+  }
+}

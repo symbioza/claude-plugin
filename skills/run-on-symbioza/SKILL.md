@@ -29,8 +29,8 @@ Two gates: an account, and money in it.
    the user to run /mcp, select plugin:symbioza:symbioza and choose Authenticate; the browser opens to sign in.
 2. **Money in it.** A new account can connect, estimate for free and read its own job list; only `submitJob`
    refuses — “prepaid balance: $0.00 available … Top up, or lower the budget.” — until the account holds
-   credit. Topping up is the user's step: send them to https://symbioza.dev/app/topup — sign in and add
-   credit; the page lists the ways to pay.
+   credit. Topping up is the user's step: send them to https://symbioza.dev/app/topup — sign in and add a
+   credit pack by card.
    `estimateExecution` reports `availableUsd` and `coversThisJob` for the spec, so check before submitting.
    If it shows `claimableUsd`, the account has free compute credit to claim at https://symbioza.dev/app, with
    no payment.
@@ -71,21 +71,26 @@ an empty one with Symbioza sizing the card. Declare it only to carry `minCudaVer
    you to submit, in this conversation.
 2. **`submitJob`** with the spec, that `specDigest` and a `clientRequestId` of your own — the one call that
    spends. It returns an `executionId` and the job runs asynchronously under `budgetUsd`. A spec changed
-   since the estimate is refused; the same `clientRequestId` returns the same job.
+   since the estimate is refused; the same `clientRequestId` returns the same job, so keep it for every resend
+   of the same submission. A resend never pays twice: if that job failed, was cancelled or was lost, you get it
+   back with a `hint`. Run it again only when the user asks: submit with `retryOf` set to its `executionId` and
+   a new `clientRequestId` — a fresh attempt, checked against the budget and balance again.
 3. **`getStatus`** with the `executionId` — every few minutes, not in a tight loop, and read `nextAction`
    before touching the spec. If the user is not waiting, stop polling and give them the `executionId`. When
-   the job has finished, call `getArtifact` even if `artifactsReady` is false. For a failed job, `getStatus`
-   says "nothing of yours ran" when every attempt died before the command started, and "fix and resubmit"
-   only when the user's own code ran and failed.
+   the job has finished, call `getArtifact` even if `artifactsReady` is false. `completed` means the command
+   finished and every file was delivered; a finished command with missing files reads `failed` with
+   `deliveryOutcome` partial — collect the files with `getArtifact` before considering a rerun. For a failed
+   job, `getStatus` says "nothing of yours ran" when every attempt died before the command started, and "fix
+   and resubmit" only when the user's own code ran and failed.
 4. **`getArtifact`** with the `executionId` — the exit code, the artifact manifest and the price. Read
    `deliveryComplete` and `deliveryDetail`: a finished run does not by itself mean every file arrived, and
    each manifest entry carries its own status. The charge shown after completion may change while billing is reconciled. Your total charge for the job, including retries, will not exceed your approved budget.
 
 Lost the `executionId` — a new session, the next morning? `listJobs` returns this account's own jobs, newest
 first, and is free. Call `cancelJob` only when the user asks: it cannot be undone. It stops a running job and
-ends its spend, releasing the machine or only this job's share of a shared machine, which may keep serving
-other work. What the job has used so far is still billed, never more than `budgetUsd`. Status, artifacts,
-cancel and the job list are scoped to the account that submitted the job.
+releases its machine. If the stop is confirmed, the user is charged for measured time up to then; if the machine cannot be reached, only up
+to the moment they asked — never more than `budgetUsd`.
+Status, artifacts, cancel and the job list are scoped to the account that submitted the job.
 
 ## Long runs
 

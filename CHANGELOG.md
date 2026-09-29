@@ -5,6 +5,18 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.2.5 — 2026-09-29
+
+- Resending a submission: keep the same `clientRequestId` for every resend and you get the original job back, whatever
+  became of it. To run a failed, cancelled or lost job again, submit with `retryOf` set to that job and a new
+  `clientRequestId`; the retry is checked against your spending limit and balance again.
+- The top-up sentence names the one door: sign in and add a credit pack by card.
+- Status semantics: `completed` means the command finished and every file was delivered; a finished command with
+  missing files reads `failed` with `deliveryOutcome` partial, and the files are collected with `getArtifact`
+  before any rerun. Cancelling: the charge ends at the confirmed stop, or at the moment of the request when the
+  stop could not be confirmed, never above the spending limit.
+- The README's cancel paragraph states the same rule, and no longer mentions shared capacity.
+
 ## 0.2.4 — 2026-09-28
 
 - The `gpu` block is optional. A spec without it is treated as an empty one: every job runs on a GPU machine and

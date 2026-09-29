@@ -84,8 +84,8 @@ https://symbioza.dev/examples
 
 Two gates: an account, and money in it. A new account can connect, estimate and read its own job list;
 submitting refuses — “prepaid balance: $0.00 available … Top up, or lower the budget.” — until the account holds
-credit. Add credit at https://symbioza.dev/app/topup: sign in, and the page lists the ways to pay. Credit packs
-and billing details: https://symbioza.dev/pricing
+credit. Add credit at https://symbioza.dev/app/topup: sign in and add a credit pack by card. Credit packs and
+billing details: https://symbioza.dev/pricing
 
 When you are happy with the estimate, tell your agent to submit.
 
@@ -113,7 +113,9 @@ When you are happy with the estimate, tell your agent to submit.
 - **Recovery.** A retry or move to another machine depends on the job policy, available compute and what is left
   of your spending limit. Checkpoint recovery needs compatible save-and-resume logic in your code. A run may stop
   without completing.
-- **Cancel.** Cancelling stops your job and ends its spend. On shared capacity it releases only your job's share.
+- **Cancel.** Cancelling stops your job and releases its machine. If the stop is confirmed, you are charged for
+  measured time up to then; if the machine cannot be reached, only up to the moment you asked — never more than
+  your spending limit.
 
 ## What you pay
 

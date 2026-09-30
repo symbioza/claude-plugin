@@ -69,8 +69,9 @@ Supply the workload: the image, the command, its inputs, the expected outputs an
   are not collected, so a command that saves its model elsewhere finishes with nothing delivered. Check the
   command before submitting. Keep deliverables small: models, logs, metrics.
 - **The budget.** budgetUsd is what you are willing to spend on the job, and you are never billed more than that. Ask for it
-  explicitly; there is no default, and never choose one for the user. It is a hard ceiling, not an estimate:
-  it is checked before a machine is booked and again before every retry.
+  explicitly, after the estimate; there is no default, and never choose one for the user. It is a hard ceiling, not
+  an estimate: it is checked before a machine is booked and again before every retry.
+  Never make the user pick a budget just to see the likely cost: estimate without budgetUsd, explain the estimate, then ask for the spending approval.
 
 Do not ask how long the job will take. The run's time limit comes from `budgetUsd` at the booked machine's
 hourly rate, the 48-hour platform maximum and any `maxRuntimeSeconds` the user sets (a value above 172800 is
@@ -82,10 +83,16 @@ an empty one with Symbioza sizing the card. Declare it only to carry `minCudaVer
 
 ## The loop
 
-1. **`estimateExecution`** with the spec — free, books nothing, needs no balance. It returns the price,
-   `specDigest`, the account's `availableUsd` and `coversThisJob`, and `runtime`. Show the user the price,
-   the time limit and the budget. **Then stop.** Call `submitJob` only after the user has seen them and told
-   you to submit, in this conversation.
+1. **`estimateExecution`** with the spec, with or without `budgetUsd` — free, books nothing, needs no
+   balance. It returns `price` (what the figure rests on, `perHourUsd`, what it `includes` and what is still
+   `unknown`), `readiness` (what is missing before the spec is final), the account's `availableUsd` and
+   `runtime`. `estimatedPriceUsd` comes back only when `price.evidence` is `customer` — priced at the user's own
+   `maxRuntimeSeconds`. When it is `insufficient`, nothing about this job predicts its runtime: tell the user
+   it is not a quote, give the hourly price, and never present the runtime's image history as the price.
+   Then ask for a budget and estimate again with it: only that estimate returns `coversThisJob` and the
+   `specDigest` submit needs, and `runtime.boundSeconds` then shows the most runtime the budget buys — a
+   limit, not a prediction. Show the user the estimate, the time limit and the budget. **Then stop.** Call
+   `submitJob` only after the user has seen them and told you to submit, in this conversation.
 2. **`submitJob`** with the spec, that `specDigest` and a `clientRequestId` of your own — the one call that
    spends. It returns an `executionId` and the job runs asynchronously under `budgetUsd`. A spec changed
    since the estimate is refused; the same `clientRequestId` returns the same job, so keep it for every resend

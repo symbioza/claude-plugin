@@ -5,6 +5,16 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.1 — 2026-09-30
+
+- Estimate before a budget: `estimateExecution` no longer needs `budgetUsd`, so your agent shows you the likely
+  cost before asking for a spending limit, then estimates again with the limit you choose. `submitJob` still
+  requires one, and only an estimate that carries it returns the `specDigest` a submit accepts.
+- No quote without evidence: when nothing about your job predicts how long it runs, the estimate says it is not a
+  quote and gives the price of each hour of running instead of a total; `estimatedPriceUsd` comes back only when
+  your own `maxRuntimeSeconds` backs it. The estimate also lists what it includes, what is still unknown, and
+  what is missing before the spec is final (`readiness`).
+
 ## 0.3.0 — 2026-09-30
 
 - Saved Secrets: credentials a job needs (a Hugging Face token, storage keys, a Weights & Biases key, custom

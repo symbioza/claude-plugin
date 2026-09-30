@@ -72,12 +72,14 @@ agent does not see every tool twice.
 
 Paste this, or run `/symbioza:run-on-symbioza`:
 
-> Help me prepare this GPU job for Symbioza. Ask for the container image, command, input data, expected
-> output files and my total spending limit. Check that the workload fits the current service limits. Show me
-> a free estimate and anything missing. Do not submit the job yet.
+> Help me prepare this GPU job for Symbioza. Ask for the container image, command, input data and expected
+> output files. Check that the workload fits the current service limits. Show me a free estimate and anything
+> missing, then ask for my total spending limit. Do not submit the job yet.
 
-The estimate shows the expected price, **the time limit that applies to this job**, the credit on your account
-and whether it covers the job. Worked specs for fine-tuning, evaluation and batch inference:
+The estimate needs no spending limit. It shows what the price rests on — a price when your own runtime cap
+backs it, otherwise the price of each hour of running and a plain "not a quote" — what it includes, what is
+still missing, and the credit on your account. Once you choose a spending limit, the estimate is run again
+with it: it shows **the time limit that applies to this job** and whether your credit covers it. Worked specs for fine-tuning, evaluation and batch inference:
 https://symbioza.dev/examples
 
 ## 5. Add credit and submit

@@ -5,6 +5,17 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.0 — 2026-09-30
+
+- Saved Secrets: credentials a job needs (a Hugging Face token, storage keys, a Weights & Biases key, custom
+  variables) are saved once on your Secrets page and attached to a job by name. A new tool, `listSecrets`, lists
+  your saved sets by name and type only; no page, API or tool shows a value after it is saved. The skill tells your agent never to ask
+  you to paste a credential into chat or put one in `env`, and to hand you the Symbioza setup link when access is
+  missing.
+- Funding: credit can be added in any whole-dollar amount within Symbioza's limits. When the estimate says the job
+  is not covered, it names the shortfall and a top-up link prefilled with it; a checkout that opened is not credit.
+- The connector now lists eight tools.
+
 ## 0.2.5 — 2026-09-29
 
 - Resending a submission: keep the same `clientRequestId` for every resend and you get the original job back, whatever

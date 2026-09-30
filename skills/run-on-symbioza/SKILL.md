@@ -33,7 +33,24 @@ Two gates: an account, and money in it.
    credit pack by card.
    `estimateExecution` reports `availableUsd` and `coversThisJob` for the spec, so check before submitting.
    If it shows `claimableUsd`, the account has free compute credit to claim at https://symbioza.dev/app, with
-   no payment.
+   no payment. When `coversThisJob` is false, `shortfallUsd` is the credit the job still needs and `topupUrl`
+   is the link to give the user, prefilled with it — use it as returned, never compose one. Credit can be added
+   in any whole-dollar amount within Symbioza's limits. A checkout that opened is not credit: estimate again and
+   submit only once `coversThisJob` is true.
+
+## Credentials: saved Secrets, never chat
+
+Never ask the user to paste API keys, access tokens, passwords or cloud credentials into chat, and never put them in `env` — `env` is for non-sensitive configuration.
+
+Credentials live in the user's saved Secrets on Symbioza (https://symbioza.dev/app/secrets). Call
+`listSecrets` to see what is saved — names and types only; no page, API or tool shows a value after it is saved. Attach a set to
+the job with `secrets`, by name or by the type of access it needs. If access is missing, the estimate's
+`access` block (and a `submitJob` refusal with `access_required`) carries a Symbioza `setupUrl`: give the user
+that link, never compose one yourself. After the user says they saved it, call `listSecrets` again and continue
+only if the set is there; opening the link is not proof. Prefer an existing suitable set; if several could
+serve, ask the user which name to use.
+
+How a saved secret is handled: Symbioza stores it encrypted and no page, API or tool returns its value; a job that attaches the set receives the plaintext values in its environment, and the machine running that job can technically read them; an exact copy of a value of four or more characters in the job's printed output, or the base64 or URL-encoded form of a value of eight or more, is replaced with [redacted] before that output is stored — exact matching, not a guarantee against a value printed in any other form; files the job writes are delivered as written and are not scanned or redacted; and a credential an earlier job carried in `env` stays in that job's stored spec — saving a secret does not remove it.
 
 ## What to ask the user
 

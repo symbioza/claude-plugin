@@ -30,8 +30,8 @@ limit you set.
 Symbioza runs a containerized GPU job on a rented cloud machine under a hard dollar ceiling and collects available artifacts. An agent submits an image, a command and a budget through one MCP connector. Symbioza selects compute, runs the job and reports output delivery and billing separately. Recovery depends on job policy, available compute, remaining budget and compatible checkpoint support.
 
 - **A hosted MCP server** at https://symbioza.dev/mcp (streamable HTTP, sign-in with OAuth, no API key). Its
-  seven tools: `estimateExecution`, `submitJob`, `getStatus`, `getArtifact`, `listJobs`, `describeDataset`,
-  `cancelJob`.
+  eight tools: `estimateExecution`, `submitJob`, `getStatus`, `getArtifact`, `listJobs`, `listSecrets`,
+  `describeDataset`, `cancelJob`.
 - **One skill, `/symbioza:run-on-symbioza`.** It tells your agent when a job fits Symbioza, what to ask you, and
   the four calls from spec to files: estimate, submit, status, artifact.
 
@@ -61,7 +61,7 @@ key to generate and none to send.
 
 You are ready when all three hold:
 
-- `/mcp` lists `plugin:symbioza:symbioza` as connected, with seven tools.
+- `/mcp` lists `plugin:symbioza:symbioza` as connected, with eight tools.
 - Typing `/` shows `/symbioza:run-on-symbioza`.
 - `claude plugin list` shows `symbioza@symbioza` as enabled.
 
@@ -84,8 +84,11 @@ https://symbioza.dev/examples
 
 Two gates: an account, and money in it. A new account can connect, estimate and read its own job list;
 submitting refuses — “prepaid balance: $0.00 available … Top up, or lower the budget.” — until the account holds
-credit. Add credit at https://symbioza.dev/app/topup: sign in and add a credit pack by card. Credit packs and
-billing details: https://symbioza.dev/pricing
+credit. Add credit at https://symbioza.dev/app/topup: sign in and add credit by card. Credit can be added
+in any whole-dollar amount within Symbioza's limits — the packs are shortcuts. When the estimate shows the job is
+not covered, it names the shortfall and your agent gives you a top-up link prefilled with it. Opening the checkout
+is not credit: ask for a fresh estimate once you have paid. Credit packs and billing details:
+https://symbioza.dev/pricing
 
 When you are happy with the estimate, tell your agent to submit.
 
@@ -101,6 +104,20 @@ When you are happy with the estimate, tell your agent to submit.
 - **Output files** written to `/workspace/artifacts/`. That directory is what comes back; anything written
   elsewhere is not collected.
 - **A total spending limit** for the job, in US dollars.
+
+## Credentials: saved Secrets, never chat
+
+A job that needs a Hugging Face token, storage keys or another credential gets it from a saved Secret, never from
+the chat. Your agent follows this rule:
+
+> Never ask the user to paste API keys, access tokens, passwords or cloud credentials into chat, and never put them in `env` — `env` is for non-sensitive configuration.
+
+Save a credential once at https://symbioza.dev/app/secrets and your agent attaches it to a job by name
+(`secrets`). Your agent can list your saved sets with `listSecrets`, which returns names and types only — no page, API or tool
+shows a value after it is saved. If a job needs access you have not saved yet, your agent gives you a Symbioza setup
+link; open it, save the credential there, and tell your agent when it is done.
+
+How a saved secret is handled: Symbioza stores it encrypted and no page, API or tool returns its value; a job that attaches the set receives the plaintext values in its environment, and the machine running that job can technically read them; an exact copy of a value of four or more characters in the job's printed output, or the base64 or URL-encoded form of a value of eight or more, is replaced with [redacted] before that output is stored — exact matching, not a guarantee against a value printed in any other form; files the job writes are delivered as written and are not scanned or redacted; and a credential an earlier job carried in `env` stays in that job's stored spec — saving a secret does not remove it.
 
 ## How runs, files and cancelling work
 
@@ -130,8 +147,9 @@ When you are happy with the estimate, tell your agent to submit.
 ## Privacy
 
 Jobs run on third-party compute. Your job's image, command, dataset links, environment variables and log tails
-are processed on Symbioza's servers and can be stored, so keep secrets out of them: never put cloud-provider
-keys, SSH private keys or other credentials in a job specification. Only submit code and data you have
+are processed on Symbioza's servers and can be stored, so keep secrets out of them: never put credentials in a job
+specification or its environment variables, and never send SSH private keys. Credentials belong in your saved
+Secrets, which are stored encrypted and injected into the job only when it runs. Only submit code and data you have
 permission to use.
 
 Privacy: https://symbioza.dev/privacy · Terms: https://symbioza.dev/terms

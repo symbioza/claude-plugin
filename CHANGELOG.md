@@ -5,6 +5,11 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.2 — 2026-10-05
+
+- README: how to connect from VS Code, GitHub Copilot and any other remote MCP client, and a last step on
+  getting your files back. No change to the plugin or the connector.
+
 ## 0.3.1 — 2026-09-30
 
 - Estimate before a budget: `estimateExecution` no longer needs `budgetUsd`, so your agent shows you the likely

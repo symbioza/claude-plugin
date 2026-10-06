@@ -11,7 +11,7 @@
   <a href="#1-install"><img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude_Code-plugin-40a56f?style=flat-square&labelColor=0b0c0c"></a>
 </p>
 
-# Symbioza for Claude Code
+# Symbioza
 
 **Run fine-tuning, evaluation and batch-inference jobs on a cloud GPU from Claude Code, under a hard spending
 limit.** Your agent prepares the job, shows you a free estimate, and submits it only when you say so. Symbioza
@@ -36,6 +36,25 @@ Symbioza runs a containerized GPU job on a rented cloud machine under a hard dol
   the four calls from spec to files: estimate, submit, status, artifact.
 
 For agents deciding whether a job fits: https://symbioza.dev/agent
+
+## VS Code, GitHub Copilot and other MCP clients
+
+You do not need the plugin to use Symbioza: the server is the same remote MCP endpoint, https://symbioza.dev/mcp.
+Any client that supports remote Streamable HTTP MCP with an OAuth sign-in connects to it. If the client asks for
+headers or an API key, leave them empty: you sign in in your browser the first time the client connects.
+
+In VS Code, run **MCP: Add Server** from the Command Palette, or add this to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "symbioza": { "type": "http", "url": "https://symbioza.dev/mcp" }
+  }
+}
+```
+
+Then ask for a free estimate (step 4). Setup for ChatGPT, Claude.ai and other clients:
+https://symbioza.dev/plugins
 
 ## 1. Install
 
@@ -92,7 +111,13 @@ not covered, it names the shortfall and your agent gives you a top-up link prefi
 is not credit: ask for a fresh estimate once you have paid. Credit packs and billing details:
 https://symbioza.dev/pricing
 
-When you are happy with the estimate, tell your agent to submit.
+When you are happy with the estimate, tell your agent to submit. Nothing is booked or charged before you do.
+
+## 6. Get your files
+
+Ask your agent for the job's status (`getStatus`). Once the run has finished, ask for its files (`getArtifact`):
+each delivered file comes with a download link and a hash you can verify. Links expire after 24 hours; ask
+again for fresh ones.
 
 ## What your agent will ask you for
 

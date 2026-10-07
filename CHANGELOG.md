@@ -5,6 +5,27 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.4 — 2026-10-07
+
+- One estimate per spec and budget: the answer already carries the price, the runtime, readiness and your balance, so
+  your agent estimates again only when the spec or the budget changes.
+- One output assumption: without `expectedOutputGb`, the estimate assumes about 1 GB of output, and says so the same
+  way in `price.unknown` and `estimate.assumptions`.
+
+skill sha256: 303366033d0a
+
+## 0.3.3 — 2026-10-07
+
+- A best-effort estimate first: when anything about your job predicts how long it runs, the estimate gives the likely
+  cost with a range, the expected runtime and a confidence (`estimate`), before you choose a spending limit; when
+  nothing does, it gives the price of each hour of running and no total.
+- One runtime story: `estimate.runtime` is how long the job likely runs; `runtime.boundSeconds` is only where the run
+  would be stopped (your spending limit, your own cap or the 48-hour limit) — a limit, never a prediction.
+  `estimatedPriceUsd` appears only when the estimate is priced at your own `maxRuntimeSeconds`, and then equals
+  `estimate.likelyUsd`. The spending limit stays the hard maximum.
+
+skill sha256: 9942932dcf5c
+
 ## 0.3.2 — 2026-10-05
 
 - README: how to connect from VS Code, GitHub Copilot and any other remote MCP client, and a last step on

@@ -95,10 +95,11 @@ Paste this, or run `/symbioza:run-on-symbioza`:
 > output files. Check that the workload fits the current service limits. Show me a free estimate and anything
 > missing, then ask for my total spending limit. Do not submit the job yet.
 
-The estimate needs no spending limit. It shows what the price rests on — a price when your own runtime cap
-backs it, otherwise the price of each hour of running and a plain "not a quote" — what it includes, what is
-still missing, and the credit on your account. Once you choose a spending limit, the estimate is run again
-with it: it shows **the time limit that applies to this job** and whether your credit covers it. Worked specs for fine-tuning, evaluation and batch inference:
+The estimate needs no spending limit. It leads with the likely cost, its range, the expected runtime and how
+confident it is — a best-effort estimate, not a quote — or, when nothing about the job predicts its runtime, the
+price of each hour of running and no total; then what it includes, what is still missing, and the credit on your
+account. Once you choose a spending limit, the estimate is run again with it: the limit is the hard maximum, and
+the card shows where it would stop the run and whether your credit covers it. Worked specs for fine-tuning, evaluation and batch inference:
 https://symbioza.dev/examples
 
 ## 5. Add credit and submit
@@ -150,7 +151,7 @@ How a saved secret is handled: Symbioza stores it encrypted and no page, API or 
 
 - **Time.** Every run has a time limit: what your spending limit buys on the machine it books and any cap you
   set, never more than the 48-hour platform maximum. The estimate shows that limit before you spend anything;
-  the machine the job books can end a run sooner. A cap above 48 hours is refused at submit.
+  the machine the job books can end a run sooner. A cap above 48 hours is refused at estimate and at submit.
 - **Files.** Check the file delivery status separately from the run status. Available output files have
   download links and hashes you can verify. A completed run does not by itself confirm file delivery or final
   billing. Download links expire after 24 hours; the files do not.

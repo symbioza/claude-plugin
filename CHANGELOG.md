@@ -5,6 +5,13 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.5 — 2026-10-07
+
+- `pinHost` is accepted and ignored: a machine that is lost or never finishes starting may be replaced, inside
+  `budgetUsd`. To keep a benchmark on one GPU model, set `gpu.gpuName` with `gpu.gpuNameExact`.
+
+skill sha256: 65e071c6ec11
+
 ## 0.3.4 — 2026-10-07
 
 - One estimate per spec and budget: the answer already carries the price, the runtime, readiness and your balance, so

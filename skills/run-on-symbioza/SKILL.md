@@ -124,8 +124,7 @@ Status, artifacts, cancel and the job list are scoped to the account that submit
 
 ## Long runs
 
-If an attempt fails on the machine's side, the job may be retried or moved to another machine, unless
-`pinHost` is set. That depends on compatible compute being available, on the attempt limit and on what is
+If an attempt fails on the machine's side, the job may be retried or moved to another machine. That depends on compatible compute being available, on the attempt limit and on what is
 left of `budgetUsd`: each attempt is booked only if the remainder covers it, and a run can stop without
 completing. Files named `ckpt_step<N>.pt` written to `/workspace/artifacts/` are streamed off the machine as
 checkpoints; on a replacement machine `SYMBIOSA_RESUME` holds the absolute path of the newest one. The

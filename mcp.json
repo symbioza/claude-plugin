@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "symbioza": {
+      "url": "https://symbioza.dev/mcp",
+      "headers": { "X-Symbioza-Source": "cursor-plugin" }
+    }
+  }
+}

@@ -1,11 +1,9 @@
 {
   "name": "symbioza",
-  "displayName": "Symbioza",
   "version": "0.3.7",
   "description": "Give your agent a cloud GPU with a hard spending limit: free estimates, supported containers, output files collected, and never billed more than your budget.",
   "author": {
-    "name": "Symbioza",
-    "url": "https://symbioza.dev"
+    "name": "Symbioza"
   },
   "homepage": "https://symbioza.dev",
   "repository": "https://github.com/symbioza/claude-plugin",
@@ -19,5 +17,8 @@
     "evaluation",
     "batch-inference",
     "spending-limit"
-  ]
+  ],
+  "logo": "assets/symbioza-logo-light.png",
+  "skills": "skills/",
+  "mcpServers": "mcp.json"
 }

@@ -60,9 +60,9 @@ default branch; every item below must hold on a real Cursor install first.
 - [ ] Record the Cursor version and commit (**Cursor → About**).
 - [ ] The local plugin is discovered: skill and server listed in **Customize**.
 - [ ] Sign-in completes in the browser and returns to Cursor.
-- [ ] Every tool the live server lists is discovered under `symbioza` (nine on 2026-10-11: `estimateExecution`,
-      `submitJob`, `getStatus`, `getArtifact`, `listJobs`, `listSecrets`, `describeDataset`, `cancelJob`,
-      `inspectRun`). Cursor lists its own `mcp_auth` helper beside them; it is not a Symbioza tool.
+- [ ] Nine tools are discovered: `estimateExecution`, `submitJob`, `getStatus`, `inspectRun`, `getArtifact`,
+      `listJobs`, `listSecrets`, `describeDataset`, `cancelJob`. Cursor lists its own `mcp_auth` helper beside them;
+      it is not a Symbioza tool.
 - [ ] "Use Symbioza to list my jobs. Do not submit any work." returns a list (an empty one counts).
 - [ ] A free estimate without a spending limit returns a price card and nothing is submitted.
 - [ ] No job is submitted and no credential is typed during the test.

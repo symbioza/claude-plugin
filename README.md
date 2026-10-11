@@ -30,7 +30,7 @@ limit you set.
 Symbioza runs a containerized GPU job on a rented cloud machine under a hard dollar ceiling and collects available artifacts. An agent submits an image, a command and a budget through one MCP connector. Symbioza selects compute, runs the job and reports output delivery and billing separately. Recovery depends on job policy, available compute, remaining budget and compatible checkpoint support.
 
 - **A hosted MCP server** at https://symbioza.dev/mcp (streamable HTTP, sign-in with OAuth, no API key). Its
-  eight tools: `estimateExecution`, `submitJob`, `getStatus`, `getArtifact`, `listJobs`, `listSecrets`,
+  nine tools: `estimateExecution`, `submitJob`, `getStatus`, `inspectRun`, `getArtifact`, `listJobs`, `listSecrets`,
   `describeDataset`, `cancelJob`.
 - **One skill, `/symbioza:run-on-symbioza`.** It tells your agent when a job fits Symbioza, what to ask you, and
   the four calls from spec to files: estimate, submit, status, artifact.
@@ -72,7 +72,7 @@ merging it into any `mcpServers` block already there:
 ```
 
 Open **Customize** in the sidebar, enable `symbioza` under MCPs, and finish the sign-in in the browser. This gives
-your agent the eight tools; it does not install the `run-on-symbioza` skill and needs no marketplace listing.
+your agent the nine tools; it does not install the `run-on-symbioza` skill and needs no marketplace listing.
 
 **Install the plugin.** Copy this repository to `~/.cursor/plugins/local/symbioza` (a real copy: Cursor skips a
 symlink that points outside that directory), restart Cursor or run **Developer: Reload Window**, then confirm in
@@ -106,7 +106,7 @@ key to generate and none to send.
 
 You are ready when all three hold:
 
-- `/mcp` lists `plugin:symbioza:symbioza` as connected, with eight tools.
+- `/mcp` lists `plugin:symbioza:symbioza` as connected, with nine tools.
 - Typing `/` shows `/symbioza:run-on-symbioza`.
 - `claude plugin list` shows `symbioza@symbioza` as enabled.
 

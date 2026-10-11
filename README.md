@@ -30,7 +30,7 @@ limit you set.
 Symbioza runs a containerized GPU job on a rented cloud machine under a hard dollar ceiling and collects available artifacts. An agent submits an image, a command and a budget through one MCP connector. Symbioza selects compute, runs the job and reports output delivery and billing separately. Recovery depends on job policy, available compute, remaining budget and compatible checkpoint support.
 
 - **A hosted MCP server** at https://symbioza.dev/mcp (streamable HTTP, sign-in with OAuth, no API key). Its
-  eight tools: `estimateExecution`, `submitJob`, `getStatus`, `getArtifact`, `listJobs`, `listSecrets`,
+  nine tools: `estimateExecution`, `submitJob`, `getStatus`, `inspectRun`, `getArtifact`, `listJobs`, `listSecrets`,
   `describeDataset`, `cancelJob`.
 - **One skill, `/symbioza:run-on-symbioza`.** It tells your agent when a job fits Symbioza, what to ask you, and
   the four calls from spec to files: estimate, submit, status, artifact.
@@ -56,7 +56,33 @@ In VS Code, run **MCP: Add Server** from the Command Palette, or add this to `.v
 Then ask for a free estimate (step 4). Setup for ChatGPT, Claude.ai and other clients:
 https://symbioza.dev/plugins
 
+## Cursor
+
+Choose one of the two, not both, or your agent sees every tool twice.
+
+**Connect directly.** Add the server to `~/.cursor/mcp.json` (every project) or to `.cursor/mcp.json` in one project,
+merging it into any `mcpServers` block already there:
+
+```json
+{
+  "mcpServers": {
+    "symbioza": { "url": "https://symbioza.dev/mcp" }
+  }
+}
+```
+
+Open **Customize** in the sidebar, enable `symbioza` under MCPs, and finish the sign-in in the browser. This gives
+your agent the nine tools; it does not install the `run-on-symbioza` skill and needs no marketplace listing.
+
+**Install the plugin.** Copy this repository to `~/.cursor/plugins/local/symbioza` (a real copy: Cursor skips a
+symlink that points outside that directory), restart Cursor or run **Developer: Reload Window**, then confirm in
+**Customize** that the `run-on-symbioza` skill and the `symbioza` MCP server are listed. Enable the server and finish
+the sign-in in the browser; invoke the skill with `/run-on-symbioza`. A team policy may block local plugin imports.
+Sign-in, usage, costs and a test checklist: [docs/cursor.md](./docs/cursor.md).
+
 ## 1. Install
+
+Steps 1 to 3 and the update commands are for Claude Code. Cursor: see the section above.
 
 ```sh
 claude plugin marketplace add symbioza/claude-plugin
@@ -80,7 +106,7 @@ key to generate and none to send.
 
 You are ready when all three hold:
 
-- `/mcp` lists `plugin:symbioza:symbioza` as connected, with eight tools.
+- `/mcp` lists `plugin:symbioza:symbioza` as connected, with nine tools.
 - Typing `/` shows `/symbioza:run-on-symbioza`.
 - `claude plugin list` shows `symbioza@symbioza` as enabled.
 

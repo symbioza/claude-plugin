@@ -26,7 +26,10 @@ Two gates: an account, and money in it.
 
 1. **An account.** The connector needs signing in once before its tools appear; there is no API key.
    Creating an account is open. If Symbioza's tools are not available, or a tool answers `unauthorized`, ask
-   the user to run /mcp, select plugin:symbioza:symbioza and choose Authenticate; the browser opens to sign in.
+   the user to sign in from the client that holds this plugin: in a terminal client with an /mcp menu, run /mcp,
+   select plugin:symbioza:symbioza and choose Authenticate; in Cursor, open Customize, find symbioza under MCPs,
+   enable it and finish the sign-in when the browser opens; in any other client, use its own MCP authentication
+   control. The browser opens to sign in. Never ask the user for a token in chat.
 2. **Money in it.** A new account can connect, estimate for free and read its own job list; only `submitJob`
    refuses — “prepaid balance: $0.00 available … Top up, or lower the budget.” — until the account holds
    credit. Topping up is the user's step: send them to https://symbioza.dev/app/topup — sign in and add a

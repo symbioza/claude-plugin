@@ -5,6 +5,24 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.7 — 2026-10-11
+
+- Cursor: the same package installs as a Cursor plugin. `.cursor-plugin/plugin.json` and a root `mcp.json` connect
+  the connector at https://symbioza.dev/mcp; the skill is shared. Direct connection without the plugin, local
+  install and sign-in: README and docs/cursor.md.
+- The skill's sign-in step names the client: /mcp → Authenticate in Claude Code, Customize → MCPs in Cursor, the
+  client's own MCP sign-in elsewhere — and never a token typed into chat.
+
+skill sha256: 1e82779fb622
+
+## 0.3.6 — 2026-10-09
+
+- New tool, `inspectRun`: one read of a running job — whether its machine is reporting, whether your workload's
+  progress is advancing, the tail of its output and the files collected so far. A workload reports progress by
+  writing `/workspace/artifacts/.symbiosa/progress.json`. The connector now lists nine tools.
+
+skill sha256: 65e071c6ec11
+
 ## 0.3.5 — 2026-10-07
 
 - `pinHost` is accepted and ignored: a machine that is lost or never finishes starting may be replaced, inside

@@ -5,6 +5,13 @@ What changed in each release of the Symbioza plugin for Claude Code. To update, 
 <!-- Maintainers: each release sets `version` in .claude-plugin/plugin.json to the newest heading below; Claude Code
 updates an installed copy only when that version changes. deploy/export-plugin.sh enforces it. -->
 
+## 0.3.8 — 2026-10-11
+
+- The Cursor guide (docs/cursor.md) is for using the plugin only: the maintainers' marketplace checklist is no longer
+  part of it.
+
+skill sha256: 1e82779fb622
+
 ## 0.3.7 — 2026-10-11
 
 - Cursor: the same package installs as a Cursor plugin. `.cursor-plugin/plugin.json` and a root `mcp.json` connect

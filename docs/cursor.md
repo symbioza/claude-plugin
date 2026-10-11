@@ -47,22 +47,3 @@ describes.
   See the README, "Credentials: saved Secrets, never chat" and "Privacy".
 - A problem with the plugin: https://github.com/symbioza/claude-plugin/issues (redact first). Your account, a
   payment, privacy or security: https://symbioza.dev/contact.
-
-## Maintainers: checks before a Cursor marketplace submission
-
-Run from the package root. The package is submitted at https://cursor.com/marketplace/publish from the repository's
-default branch; every item below must hold on a real Cursor install first.
-
-- [ ] `node validate-template.mjs` from https://github.com/cursor/plugin-template passes (a missing `hooks/hooks.json`
-      warning is expected).
-- [ ] `.cursor-plugin/plugin.json` and `.claude-plugin/plugin.json` carry the same `version`, equal to the newest
-      CHANGELOG heading (`deploy/export-plugin.sh` in the source repository refuses otherwise).
-- [ ] Record the Cursor version and commit (**Cursor → About**).
-- [ ] The local plugin is discovered: skill and server listed in **Customize**.
-- [ ] Sign-in completes in the browser and returns to Cursor.
-- [ ] Nine tools are discovered: `estimateExecution`, `submitJob`, `getStatus`, `inspectRun`, `getArtifact`,
-      `listJobs`, `listSecrets`, `describeDataset`, `cancelJob`. Cursor lists its own `mcp_auth` helper beside them;
-      it is not a Symbioza tool.
-- [ ] "Use Symbioza to list my jobs. Do not submit any work." returns a list (an empty one counts).
-- [ ] A free estimate without a spending limit returns a price card and nothing is submitted.
-- [ ] No job is submitted and no credential is typed during the test.
